@@ -14,9 +14,14 @@ const fileStream = fs.createWriteStream(filePath);
 const stdin = process.stdin;
 const stdout = process.stdout;
 
-stdin.on('error', (err) => console.error('Error on stdin:', err));
-stdout.on('error', (err) => console.error('Error on stdout:', err));
-fileStream.on('error', (err) => console.error('Error on fileStream:', err));
+function errHandler(name, err) {
+  console.error(name, err);
+  process.exit(1);
+}
+
+stdin.on('error', (err) => errHandler('stdin', err));
+stdout.on('error', (err) => errHandler('stdout', err));
+fileStream.on('error', (err) => errHandler('fileStream', err));
 
 stdin.pipe(stdout);
 stdin.pipe(fileStream);
