@@ -1,6 +1,6 @@
 {
   "name": "justtee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just tee, a minimal replacement for unix tee",
   "preferGlobal": true,
   "bin": {
