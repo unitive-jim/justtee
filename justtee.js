@@ -18,4 +18,5 @@ stdin.on('error', (err) => console.error('Error on stdin:', err));
 stdout.on('error', (err) => console.error('Error on stdout:', err));
 fileStream.on('error', (err) => console.error('Error on fileStream:', err));
 
-stdin.pipe(stdout).pipe(fileStream);
+stdin.pipe(stdout);
+stdin.pipe(fileStream);
