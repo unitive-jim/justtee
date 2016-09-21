@@ -4,10 +4,11 @@
   "description": "Just tee, a minimal replacement for unix tee",
   "preferGlobal": true,
   "bin": {
-    "justtee": "justtee.js"
+    "justtee": "justtee.js",
+    "justteetester": "justteetester.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "(node justteetester.js | node justtee.js /tmp/a.out > /tmp/b.out) && diff /tmp/a.out /tmp/b.out"
   },
   "keywords": [
     "tee",
